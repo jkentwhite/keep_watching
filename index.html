@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>keep_watching</title>
+<style>
+
+* {cursor: none;}
+  
+p { position: absolute;
+  margin-top: 15%;
+  width: 100%;
+  text-align: center;
+  font-size: 20vw;
+  opacity: 0;
+  transition: color 2s ease-in-out;
+}
+
+body {
+  transition: background-color 2s ease-in-out;
+}
+
+  
+</style>
+</head>
+<body>
+  <p id="text"></p>
+<script>
+var black_white = document.getElementById("text");
+var dark = false;
+var phrase = ['just', 'keep', 'watching', 'this', 'for', 'ever'];
+var count = 0;
+
+function keep_watching(){
+  black_white.style.opacity = 1;
+  black_white.innerHTML = phrase[count];
+  
+  if(count === 0){
+    if(dark){
+    black_white.style.color = "#f1f1f1";
+    document.body.style.backgroundColor = "black";
+  } else {
+    black_white.style.color = "black";
+    document.body.style.backgroundColor = "#f1f1f1"; 
+  }
+  dark=!dark;
+  }
+
+  if(count < phrase.length-1){
+    count++;
+    
+   } else {
+     count = 0;
+   }
+  
+  }
+
+
+setInterval(keep_watching, 2000);
+</script>
+
+</body>
+</html>
